@@ -22,4 +22,4 @@ def get_post(request, *args, **kwargs):
     post_obj = models.Post.objects.filter(id=kwargs.get('post_id')).first()
     if not post_obj:
         return HttpResponseNotFound('Post not found')
-    return render(request, 'data.html', {'data': post_obj.data})
+    return render(request, 'data.html', {'data': post_obj.data}, content_type='text/plain')
