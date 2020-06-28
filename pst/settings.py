@@ -1,4 +1,7 @@
 import os
+import mongoengine
+import pymongo
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -63,6 +66,9 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+MONGODB_HOST = 'mongodb://127.0.0.1:27017'
+mongoengine.connect(db='pst', host=MONGODB_HOST, read_preference=pymongo.ReadPreference.PRIMARY_PREFERRED)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
